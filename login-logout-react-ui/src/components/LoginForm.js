@@ -28,11 +28,11 @@ class LoginForm extends React.Component
         return(
         <div>
             <h2 class="h2" style = {headerStyle}>Login</h2>
-            <form className ="form-group">
+            <form className ="form-group" onSubmit = {this.loginUser}>
             
             <div class ="col-md-6">
                 <div class = "p-2">
-                Username : <input type ="text" name ="txtUsername" className="form-control"/>
+                Username : <input type ="text" name ="txtUsername" className="form-control" required />
                 </div>
             </div>
             <div class ="col-md-6">
@@ -42,7 +42,7 @@ class LoginForm extends React.Component
             </div>
             <div class ="col-md-6">
                 <div class = "p-2">
-                <Button variant="primary" onClick = {this.loginUser}>Login</Button>
+                <Button variant="primary">Login</Button>
                 </div>
             </div>
             
