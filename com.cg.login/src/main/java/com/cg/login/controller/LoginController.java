@@ -13,13 +13,16 @@ import com.cg.login.model.Login;
 import com.cg.login.service.LoginService;
 
 @RestController
-//@RequestMapping("/users")
+@RequestMapping("/users")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
    // @GetMapping("users/allUsers")
-    
+    @GetMapping("/all")
+    public String mainPage() {
+    	return "Main Page";
+    }
     @PostMapping("users/login")
     public ApiResponse login(@RequestBody Login loginDto){
         return loginService.login(loginDto);
