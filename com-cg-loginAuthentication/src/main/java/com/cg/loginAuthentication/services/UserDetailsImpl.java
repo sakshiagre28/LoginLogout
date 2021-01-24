@@ -1,4 +1,5 @@
 package com.cg.loginAuthentication.services;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -18,13 +19,11 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String username;
 
-	private String email;
-
 	@JsonIgnore
 	private String password;
 
 	private Collection<? extends GrantedAuthority> authorities;
-
+	private static SimpleGrantedAuthority authority;
 	public UserDetailsImpl(Long id, String username, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
@@ -34,10 +33,14 @@ public class UserDetailsImpl implements UserDetails {
 	}
 
 	public static UserDetailsImpl build(User user) {
-		List<GrantedAuthority> authorities = user.getRoles().stream()
+		/*List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
 				.collect(Collectors.toList());
-
+*/
+		
+		authority = new SimpleGrantedAuthority(user.getRole());
+		List<GrantedAuthority> authorities= new ArrayList<GrantedAuthority>();
+		authorities.add(authority);
 		return new UserDetailsImpl(
 				user.getId(), 
 				user.getUsername(),

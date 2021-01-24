@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.loginAuthentication.jwt.JwtUtils;
 import com.cg.loginAuthentication.payloads.JwtResponse;
 import com.cg.loginAuthentication.payloads.LoginRequest;
-import com.cg.loginAuthentication.repository.RoleRepository;
+//import com.cg.loginAuthentication.repository.RoleRepository;
 import com.cg.loginAuthentication.repository.UserRepository;
 import com.cg.loginAuthentication.services.UserDetailsImpl;
 
@@ -36,8 +36,8 @@ public class AuthController {
 	@Autowired
 	UserRepository userRepository;
 
-	@Autowired
-	RoleRepository roleRepository;
+	//@Autowired
+	//1RoleRepository roleRepository;
 
 	@Autowired
 	PasswordEncoder encoder;
