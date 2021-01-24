@@ -1,5 +1,7 @@
 package com.cg.login.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,37 +15,43 @@ import com.cg.login.model.Login;
 import com.cg.login.service.LoginService;
 
 @RestController
-@RequestMapping("/users")
+//@RequestMapping("/users")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
    // @GetMapping("users/allUsers")
-    @GetMapping("/all")
+    @GetMapping("/home")
     public String mainPage() {
     	return "Main Page";
     }
-    @PostMapping("users/login")
+    
+    @GetMapping("/users")
+    public List<Login> getAllUsers() {
+    	return loginService.getAllUsers();
+    }
+    
+    @PostMapping("/loginModule")
     public ApiResponse login(@RequestBody Login loginDto){
         return loginService.login(loginDto);
     }
     
-    @GetMapping("users/customer")
+    @GetMapping("/customer")
     public String customerPage() {
     	return "Customer Page";
     }
     
-    @GetMapping("users/admin")
+    @GetMapping("/admin")
     public String adminPage() {
     	return "Admin Page";
     }
     
-    @GetMapping("users/manager")
+    @GetMapping("/manager")
     public String managerPage() {
     	return "Manager Page";
     }
     
-    @PostMapping("users/logout")
+    @PostMapping("/logout")
     public LogoutResponse logout() throws InterruptedException
     {
     	return loginService.logout();

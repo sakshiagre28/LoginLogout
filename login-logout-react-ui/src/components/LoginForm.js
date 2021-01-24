@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css'
+import {BrowserRouter , Route, Switch} from 'react-router-dom'
+import { AdminPage } from './AdminPage';
 class LoginForm extends React.Component
 {
     constructor(props)
@@ -47,7 +49,7 @@ class LoginForm extends React.Component
             </div>
             
             </form>
-
+            <AdminPage/>
         </div>
     )
         }

@@ -1,5 +1,8 @@
 package com.cg.login.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +21,10 @@ public class LoginService {
 	
 	@Autowired
 	private LoginRepository loginrepository;
+	
+	public List<Login> getAllUsers(){
+        return loginrepository.findAll();
+	}
 	
 	public ApiResponse login(Login login) {
         Login user = loginrepository.findByUsername(login.getUsername());
