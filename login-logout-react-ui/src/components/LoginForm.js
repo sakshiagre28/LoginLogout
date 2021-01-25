@@ -31,7 +31,7 @@ class LoginForm extends React.Component
         <div>
             <h2 class="h2" style = {headerStyle}>Login</h2>
             <form className ="form-group" onSubmit = {this.loginUser}>
-            
+             
             <div class ="col-md-6">
                 <div class = "p-2">
                 Username : <input type ="text" name ="txtUsername" className="form-control" required />
