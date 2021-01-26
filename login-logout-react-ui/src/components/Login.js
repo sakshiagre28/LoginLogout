@@ -84,7 +84,7 @@ const Login = (props) => {
   };
 
   if (isLoggedIn) {
-    if(currentUser.roles.includes("ROLE_ADMIN")){
+    if(showAdminBoard){
     return <Redirect to="/admin" />;}
     else if(showManagerBoard){
       return <Redirect to="/manager" />;
